@@ -27,6 +27,22 @@ public class Quiz {
 	
 	public void takeQuiz() {
 		//FIXME
+		int totalScore=0; 
+		int totalPoints=getTotalPoints(); 
+		System.out.println("Welcome to the quiz!"); 
+		System.out.println("You can earn up to: "+totalPoints+" points!\n"); 
+		for(Question q:questions) {
+		//displays prompt 
+		q.displayPrompt(); 
+		//get the user's answers
+		String userAnswer=getUserAnswer(); 
+		//checks teh answer and add to total score
+		int score=q.checkAnswer(userAnswer); 
+		totalScore+=score; 
+		System.out.println("You earned: " +score+" points for this question. \n"); 
+		}
+		System.out.println("Quiz complete!"); 
+		System.out.println("Your total score: "+totalScore+"/"+totalPoints);
 	}
 	
 	public static void main(String[] args) {
